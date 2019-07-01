@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('User Management')])
 
 @section('content')
-@include('users.partials.header', ['title' => __('Thêm Đại lý')])
+@include('users.partials.header', ['title' => __('Edit User')])
 
 <div class="container-fluid mt--7">
     <div class="row">
@@ -13,48 +13,41 @@
                             <h3 class="mb-0">{{ __('User Management') }}</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">{{ __('Back to list') }}</a>
+                            <a href="{{ route('branch.index') }}" class="btn btn-sm btn-primary">{{ __('Trở về danh sách đại lý') }}</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div><br />
-                    @endif
-                    <form method="post" action="{{ route('branch.store') }}" enctype="multipart/form-data" autocomplete="off">
+                    <form method="post" action="{{ route('branch.update', $branch->id) }}" autocomplete="off" enctype="multipart/form-data">
                         @csrf
+                        @method('put')
 
                         <h6 class="heading-small text-muted mb-4">{{ __('Thông tin đại lý') }}</h6>
                         <div class="pl-lg-4">
                             <div class="form-group">
                                 <label class="form-control-label" for="input-name">{{ __('Tên Đại lý') }}</label>
-                                <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Branch') }}" value="{{ old('name') }}" required autofocus>
+                                <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Branch') }}" value="{{ old('name', $branch->name) }}" required autofocus>
 
 
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label" for="input-description_en">{{ __('Mô tả tiếng anh') }}</label>
-                                <input type="text" name="description_en" id="input-description_en" class="form-control form-control-alternative{{ $errors->has('description_en') ? ' is-invalid' : '' }}" placeholder="{{ __('Pnuematic') }}" value="{{ old('description_en') }}">
+                                <input type=" text" name="description_en" id="input-description_en" class="form-control form-control-alternative{{ $errors->has('description_en') ? ' is-invalid' : '' }}" placeholder="{{ __('Pnuematic') }}" value="{{ old('description_en', $branch->description_en) }}">
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label" for="input-description_vi">{{ __('Mô tả tiếng việt') }}</label>
-                                <input type="description_vi" name="description_vi" id="input-description_vi" class="form-control form-control-alternative{{ $errors->has('description_vi') ? ' is-invalid' : '' }}" placeholder="{{ __('Cung cấp thiết bị khí nén') }}" value="{{ old('description_en') }}">
+                                <input type="description_vi" name="description_vi" id="input-description_vi" class="form-control form-control-alternative{{ $errors->has('description_vi') ? ' is-invalid' : '' }}" placeholder="{{ __('Cung cấp thiết bị khí nén') }}" value="{{ old('description_vi', $branch->description_vi) }}">
 
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label" for="input-image">{{ __('Hình ảnh') }}</label>
                                 <input type="file" name="image" id="input-image" class="form-control form-control-alternative">
-
+                                <img src="{{ URL::to('/') }}/images/{{ $branch->image }}" class="img-thumbnail" width="100" />
+                                <input type="hidden" name="hidden_image" value="{{$branch->image }}" />
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label" for="input-link">{{ __('Đường dẫn') }}</label>
-                                <input type="text" name="link" id="input-link" class="form-control form-control-alternative" placeholder="{{ __('https://www.example.com') }}" value="{{ old('link') }}" required>
+                                <input type="text" name="link" id="input-link" class="form-control form-control-alternative" placeholder="{{ __('https://www.example.com') }}" value="{{ old('link', $branch->link) }}" required>
                             </div>
                         </div>
 
