@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\Branch;
+use App\Client;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,3 +17,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::get('branches', 'ApiBranchController@index');
+// Route::get('branches/{branch}', 'ApiBranchController@show');
+Route::apiResource('branches', 'ApiBranchController');
+Route::apiResource('clients', 'ApiBranchController');

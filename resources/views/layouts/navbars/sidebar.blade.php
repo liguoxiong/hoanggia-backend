@@ -106,6 +106,11 @@
                                     {{ __('Đại lý') }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('client.index') }}">
+                                    {{ __('Khách hàng') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
