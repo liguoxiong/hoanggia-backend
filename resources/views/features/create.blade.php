@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('User Management')])
 
 @section('content')
-@include('users.partials.header', ['title' => __('Thêm Khách hàng')])
+@include('users.partials.header', ['title' => __('Thêm Sứ mệnh')])
 
 <div class="container-fluid mt--7">
     <div class="row">
@@ -27,24 +27,26 @@
                         </ul>
                     </div><br />
                     @endif
-                    <form method="post" action="{{ route('client.store') }}" enctype="multipart/form-data" autocomplete="off">
+                    <form method="post" action="{{ route('feature.store') }}" enctype="multipart/form-data" autocomplete="off">
                         @csrf
 
-                        <h6 class="heading-small text-muted mb-4">{{ __('Thông tin khách hàng') }}</h6>
+                        <h6 class="heading-small text-muted mb-4">{{ __('Sứ mệnh') }}</h6>
                         <div class="pl-lg-4">
                             <div class="form-group">
-                                <label class="form-control-label" for="input-name">{{ __('Tên Khách hàng') }}</label>
-                                <input type="text" name="name" id="input-name" class="form-control form-control-alternative{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('client') }}" value="{{ old('name') }}" required autofocus>
-
-
+                                <label class="form-control-label" for="input-name">{{ __('Tên Sứ mệnh (Tiếng anh)') }}</label>
+                                <input type="text" name="name_en" id="input-name" class="form-control form-control-alternative{{ $errors->has('name_en') ? ' is-invalid' : '' }}" placeholder="{{ __('Feature') }}" value="{{ old('name_en') }}" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-name">{{ __('Tên Sứ mệnh (Tiếng việt)') }}</label>
+                                <input type="text" name="name_vi" id="input-name" class="form-control form-control-alternative{{ $errors->has('name_vi') ? ' is-invalid' : '' }}" placeholder="{{ __('Cung cấp thiết bị') }}" value="{{ old('name_vi') }}" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label" for="input-description_en">{{ __('Mô tả tiếng anh') }}</label>
-                                <input type="text" name="description_en" id="input-description_en" class="form-control form-control-alternative{{ $errors->has('description_en') ? ' is-invalid' : '' }}" placeholder="{{ __('Pnuematic') }}" value="{{ old('description_en') }}">
+                                <input type="text" name="description_en" id="input-description_en" class="form-control form-control-alternative{{ $errors->has('description_en') ? ' is-invalid' : '' }}" placeholder="{{ __('English') }}" value="{{ old('description_en') }}" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label" for="input-description_vi">{{ __('Mô tả tiếng việt') }}</label>
-                                <input type="text" name="description_vi" id="input-description_vi" class="form-control form-control-alternative{{ $errors->has('description_vi') ? ' is-invalid' : '' }}" placeholder="{{ __('Cung cấp thiết bị khí nén') }}" value="{{ old('description_vi') }}">
+                                <input type="text" name="description_vi" id="input-description_vi" class="form-control form-control-alternative{{ $errors->has('description_vi') ? ' is-invalid' : '' }}" placeholder="{{ __('Mô tả Tiếng Việt') }}" value="{{ old('description_vi') }}" required>
 
                             </div>
                             <div class="form-group">
@@ -52,10 +54,7 @@
                                 <input type="file" name="image" id="input-image" class="form-control form-control-alternative">
 
                             </div>
-                            <div class="form-group">
-                                <label class="form-control-label" for="input-link">{{ __('Đường dẫn') }}</label>
-                                <input type="text" name="link" id="input-link" class="form-control form-control-alternative" placeholder="{{ __('https://www.example.com') }}" value="{{ old('link') }}" required>
-                            </div>
+
                         </div>
 
 

@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use App\Branch;
 use App\Client;
+use App\Info;
+use App\Feature;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,5 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // Route::get('branches', 'ApiBranchController@index');
 // Route::get('branches/{branch}', 'ApiBranchController@show');
+Route::apiResource('features', 'ApiFeatureController');
+Route::apiResource('info', 'ApiInfoController');
 Route::apiResource('branches', 'ApiBranchController');
-Route::apiResource('clients', 'ApiBranchController');
+Route::apiResource('clients', 'ApiClientController');

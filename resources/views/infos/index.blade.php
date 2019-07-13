@@ -10,10 +10,10 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">{{ __('Khách hàng') }}</h3>
+                            <h3 class="mb-0">{{ __('Thông tin') }}</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('client.create') }}" class="btn btn-sm btn-primary">{{ __('Thêm Khách hàng') }}</a>
+                            <a href="{{ route('info'.create') }}" class="btn btn-sm btn-primary">{{ __('Thêm Thông tin') }}</a>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                                                 @method('delete')
 
                                                 <a class="dropdown-item" href="{{ route('client.edit', $client) }}">{{ __('Chỉnh sửa') }}</a>
-                                                <button type="button" class="dropdown-item" onclick="confirm('{{ __("Xóa Khách hàng?") }}') ? this.parentElement.submit() : ''">
+                                                <button type="button" class="dropdown-item" onclick="confirm('{{ __("Xóa Đại lý?") }}') ? this.parentElement.submit() : ''">
                                                     {{ __('Xóa') }}
                                                 </button>
                                             </form>

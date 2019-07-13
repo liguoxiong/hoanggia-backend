@@ -19,7 +19,9 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
+	Route::resource('dashboard/info', 'InfoController', ['except' => ['show', 'index', 'create']]);
 	Route::resource('dashboard/client', 'ClientController', ['except' => ['show']]);
+	Route::resource('dashboard/feature', 'FeatureController', ['except' => ['show']]);
 	Route::resource('dashboard/branch', 'BranchController', ['except' => ['show']]);
 	Route::resource('dashboard/user', 'UserController', ['except' => ['show']]);
 	Route::get('dashboard/profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

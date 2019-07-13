@@ -102,6 +102,11 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('feature.index') }}">
+                                    {{ __('Sứ mệnh') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('branch.index') }}">
                                     {{ __('Đại lý') }}
                                 </a>
@@ -109,6 +114,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('client.index') }}">
                                     {{ __('Khách hàng') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('info.edit', 1) }}">
+                                    {{ __('Thông tin chung') }}
                                 </a>
                             </li>
                         </ul>
