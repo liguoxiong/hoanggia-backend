@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => __('User Management')])
 
 @section('content')
-@include('users.partials.header', ['title' => __('Thêm Sứ mệnh')])
+@include('users.partials.header', ['title' => __('Thêm Sản phẩm')])
 
 <div class="container-fluid mt--7">
     <div class="row">
@@ -27,18 +27,34 @@
                         </ul>
                     </div><br />
                     @endif
-                    <form method="post" action="{{ route('feature.store') }}" enctype="multipart/form-data" autocomplete="off">
+                    <form method="post" action="{{ route('product.store') }}" enctype="multipart/form-data" autocomplete="off">
                         @csrf
 
-                        <h6 class="heading-small text-muted mb-4">{{ __('Sứ mệnh') }}</h6>
+                        <h6 class="heading-small text-muted mb-4">{{ __('Sản phẩm') }}</h6>
                         <div class="pl-lg-4">
                             <div class="form-group">
-                                <label class="form-control-label" for="input-name-vi">{{ __('Tên Sứ mệnh (Tiếng anh)') }}</label>
-                                <input type="text" name="name_en" id="input-name-vi" class="form-control form-control-alternative{{ $errors->has('name_en') ? ' is-invalid' : '' }}" placeholder="{{ __('Feature') }}" value="{{ old('name_en') }}" required autofocus>
+                                <label class="form-control-label" for="input-name-en">{{ __('Tên Sản phẩm (Tiếng anh)') }}</label>
+                                <input type="text" name="name_en" id="input-name-en" class="form-control form-control-alternative{{ $errors->has('name_en') ? ' is-invalid' : '' }}" placeholder="{{ __('Product') }}" value="{{ old('name_en') }}" required autofocus>
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label" for="input-name-en">{{ __('Tên Sứ mệnh (Tiếng việt)') }}</label>
-                                <input type="text" name="name_vi" id="input-name-en" class="form-control form-control-alternative{{ $errors->has('name_vi') ? ' is-invalid' : '' }}" placeholder="{{ __('Cung cấp thiết bị') }}" value="{{ old('name_vi') }}" required>
+                                <label class="form-control-label" for="input-name-vi">{{ __('Tên Sản phẩm (Tiếng việt)') }}</label>
+                                <input type="text" name="name_vi" id="input-name-vi" class="form-control form-control-alternative{{ $errors->has('name_vi') ? ' is-invalid' : '' }}" placeholder="{{ __('Sản phẩm') }}" value="{{ old('name_vi') }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-category">{{ __('Tên Danh mục') }}</label>
+                                <select class="form-control" name="category_id" id="input-category" value="{{ old('category_id') }}" required>
+                                    @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name_en}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="input-branch">{{ __('Tên Hãng') }}</label>
+                                <select class="form-control" name="branch_id" id="input-branch" value="{{ old('branch_id') }}" required>
+                                    @foreach($branches as $branch)
+                                    <option value="{{$branch->id}}">{{$branch->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label" for="input-description_en">{{ __('Mô tả tiếng anh') }}</label>

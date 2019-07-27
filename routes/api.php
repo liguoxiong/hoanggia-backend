@@ -5,6 +5,11 @@ use App\Branch;
 use App\Client;
 use App\Info;
 use App\Feature;
+use App\Category;
+use App\Product;
+use App\Content;
+use App\Service;
+use App\Carosel;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,6 +28,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::get('branches', 'ApiBranchController@index');
 // Route::get('branches/{branch}', 'ApiBranchController@show');
 Route::apiResource('features', 'ApiFeatureController');
+Route::apiResource('carosels', 'ApiCaroselController');
+Route::apiResource('services', 'ApiServiceController');
 Route::apiResource('info', 'ApiInfoController');
+Route::apiResource('content', 'ApiContentController');
 Route::apiResource('branches', 'ApiBranchController');
 Route::apiResource('clients', 'ApiClientController');
+Route::apiResource('categories', 'ApiCategoryController');
+Route::get('products?cat={category_id}', 'ApiProductController@show');
+Route::apiResource('products', 'ApiProductController');
