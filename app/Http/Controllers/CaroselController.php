@@ -52,7 +52,7 @@ class CaroselController extends Controller
         ]);
 
         $carosel->save();
-        return redirect()->route('carosel.index')->withStatus(__('Thêm Dịch vụ thành công'));
+        return redirect()->route('carosel.index')->withStatus(__('Thêm Slide thành công'));
     }
 
     /**
@@ -108,7 +108,7 @@ class CaroselController extends Controller
             'image' => $image_name,
         );
         Carosel::whereId($id)->update($form_data);
-        return redirect()->route('carosel.index')->withStatus(__('Sửa Dịch vụ thành công'));
+        return redirect()->route('carosel.index')->withStatus(__('Sửa Slide thành công'));
     }
 
     /**
@@ -121,6 +121,6 @@ class CaroselController extends Controller
     {
         $carosel->delete();
 
-        return redirect()->route('carosel.index')->withStatus(__('Xóa Dịch vụ thành công'));
+        return redirect()->route('carosel.index')->withStatus(__('Xóa Slide thành công'));
     }
 }
