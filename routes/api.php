@@ -10,6 +10,7 @@ use App\Product;
 use App\Content;
 use App\Service;
 use App\Carosel;
+use App\Http\Controllers\EmailController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -35,5 +36,5 @@ Route::apiResource('content', 'ApiContentController');
 Route::apiResource('branches', 'ApiBranchController');
 Route::apiResource('clients', 'ApiClientController');
 Route::apiResource('categories', 'ApiCategoryController');
-Route::get('products?cat={category_id}', 'ApiProductController@show');
 Route::apiResource('products', 'ApiProductController');
+Route::post('sendbasicemail', 'EmailController@basic_email');

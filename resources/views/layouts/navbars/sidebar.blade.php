@@ -84,15 +84,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('category.index') }}">
-                        {{ __('Danh mục') }}
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{ route('carosel.index') }}">
                         {{ __('Slide') }}
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('category.index') }}">
+                        {{ __('Danh mục Sản phẩm') }}
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('product.index') }}">
                         {{ __('Sản phẩm') }}
@@ -100,7 +101,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('feature.index') }}">
-                        {{ __('Sứ mệnh') }}
+                        {{ __('Giới thiệu') }}
                     </a>
                 </li>
                 <li class="nav-item">
@@ -128,7 +129,7 @@
                         {{ __('Nội dung') }}
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Laravel Examples') }}</span>
@@ -149,7 +150,7 @@
 
                         </ul>
                     </div>
-                </li>
+                </li> -->
 
 
             </ul>

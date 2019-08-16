@@ -8,15 +8,19 @@ use App\Http\Resources\ProductResource;
 
 class ApiProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return ProductResource::collection(Product::all());
+        if ($request->cat) {
+            $listProduct = Product::where('category_id', '=', $request->cat)
+                ->get();
+            return ProductResource::collection($listProduct);
+        } else {
+            return ProductResource::collection(Product::all());
+        }
     }
 
-    public function show($category_id, Request $request)
-    {
-        return ProductResource::collection(Product::where('category_id', '=', $category_id)->firstOrFail());
-    }
+    public function show(Request $request)
+    { }
 
     public function store(Request $request)
     {
